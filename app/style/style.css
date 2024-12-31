@@ -1,0 +1,407 @@
+* {
+  box-sizing: border-box;
+  position: relative;
+  transition: all 0.5s linear;
+  scrollbar-width: none;
+  z-index: 1;
+}
+
+html {
+  font-family: "Akaya Kanadaka", sans-serif;
+  font-size: 10px;
+  line-height: 100%;
+}
+
+body {
+  height: 100%;
+  overflow: hidden;
+  color: maroon;
+  background: MediumAquamarine;
+}
+
+h1, h2 {
+  font-family: "Miss Fajardose", serif;
+  font-weight: normal;
+  margin: 0;
+  min-height: 60%;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: space-between;
+  font-size: 9rem;
+  line-height: 85%;
+  border-radius: 0 0 70% 0;
+  padding: 5% 5% 0 10%;
+  background: rgba(255, 255, 255, 0.5);
+  z-index: 2;
+}
+h1 small, h2 small {
+  font-family: "Akaya Kanadaka", sans-serif;
+  font-size: 2.6rem;
+  line-height: 120%;
+  display: block;
+  margin: 1.5rem 0 2rem 0;
+}
+
+h2 {
+  line-height: 100%;
+  min-height: auto;
+  font-size: 6rem;
+}
+h2 small {
+  font-size: 2.5rem;
+  margin-bottom: 0;
+}
+
+img {
+  height: auto;
+}
+
+.d-flex {
+  display: flex;
+}
+
+.text-center {
+  text-align: center;
+}
+
+.button {
+  font-family: "Akaya Kanadaka", sans-serif;
+  display: inline-block;
+  padding: 1.5rem 5rem;
+  background: crimson;
+  color: white;
+  border: 0;
+  border-radius: 3rem;
+  cursor: pointer;
+  font-size: 2rem;
+  line-height: 100%;
+}
+.button:focus, .button:active {
+  outline: none;
+  text-decoration: none;
+}
+.button:hover {
+  background: firebrick;
+}
+
+.container {
+  position: fixed;
+  inset: 0;
+  overflow: hidden;
+}
+.container .stripes {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  opacity: 0.2;
+  z-index: 0;
+}
+.container .stripes:after {
+  content: "";
+  position: absolute;
+  right: 0;
+  top: 100%;
+  height: 40vh;
+  width: 1px;
+  background: linear-gradient(crimson, transparent);
+}
+.container .stripes span {
+  display: block;
+  height: 4rem;
+  width: 55vw;
+  background: crimson;
+  margin: 0 0 1rem auto;
+}
+.container .stripes span:before {
+  content: "";
+  position: absolute;
+  top: 2rem;
+  left: 0;
+  width: 30vw;
+  height: 1px;
+  background: linear-gradient(to left, crimson, transparent);
+  transform: translateX(-100%);
+}
+.container .stripes span:after {
+  content: "";
+  border-bottom: 2rem solid transparent;
+  border-top: 2rem solid transparent;
+  border-right: 1rem solid crimson;
+  position: absolute;
+  top: 0;
+  left: -1rem;
+}
+.container .stripes span + span {
+  width: 35vw;
+  margin-bottom: 1.2;
+}
+.container .stripes span + span + span {
+  width: 20vw;
+  margin-bottom: 1.4rem;
+}
+.container .stripes span + span + span + span {
+  width: 10vw;
+  margin-bottom: 1.6;
+}
+.container .stripes span + span + span + span + span {
+  width: 2vw;
+  margin-bottom: 0;
+}
+
+section {
+  width: 100%;
+  height: 100%;
+  position: sticky;
+  top: 0;
+  overflow: hidden;
+  padding: 2rem;
+  background: linear-gradient(MediumAquamarine, white) fixed;
+  z-index: 2;
+  transition-duration: 1s;
+}
+section.hide {
+  opacity: 0;
+  height: 0;
+  visibility: hidden;
+  padding-top: 0;
+  padding-bottom: 0;
+}
+
+.home {
+  align-items: flex-start;
+  z-index: 0;
+}
+.home .img {
+  width: 90vw;
+  height: 90vw;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  position: absolute;
+  bottom: -4rem;
+  right: 0;
+  z-index: 0;
+}
+.home .img:before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  background: url("../img/rays.png") no-repeat center;
+  background-size: cover;
+  animation: rotation 20s linear infinite;
+}
+@keyframes rotation {
+  from {
+    transform: rotate(0);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+.home .img img {
+  display: block;
+  width: 80%;
+  transform: rotate(5deg);
+  transition: all 4s ease-out;
+}
+.home .button {
+  transform: translateY(1rem);
+}
+.home.hide img {
+  transform: rotate(20deg);
+}
+
+.cakes, .carousel {
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: space-between;
+}
+
+.accordion {
+  width: 100%;
+  max-width: 900px;
+  margin-top: 2rem;
+  z-index: 3;
+}
+.accordion .panel {
+  flex-direction: column;
+  text-align: center;
+  margin-bottom: 1rem;
+  background: rgba(255, 255, 255, 0.3);
+  border-radius: 0.6rem;
+}
+.accordion .panel p {
+  width: 100%;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 2rem;
+  padding: 1.5rem 2rem;
+  margin: 0;
+  cursor: pointer;
+}
+.accordion .panel p span {
+  font-size: 0;
+  width: 2rem;
+  height: 2rem;
+  background: url("../img/up.png") no-repeat center;
+  background-size: 2rem;
+  transform: rotateX(180deg);
+}
+.accordion .panel div {
+  max-height: 0;
+  overflow: hidden;
+}
+.accordion .panel div img {
+  width: 100%;
+  display: block;
+}
+.accordion .panel div .button {
+  margin: 1rem 0;
+}
+.accordion .panel.open p {
+  color: crimson;
+}
+.accordion .panel.open p span {
+  transform: rotateX(0);
+}
+.accordion .panel.open div {
+  max-height: 50vh;
+  transition-delay: 0.5s;
+}
+
+.carousel .slides {
+  margin: 5rem 0 3rem 0;
+  width: 100%;
+  overflow: hidden;
+}
+.carousel .slides.hide {
+  display: none;
+}
+.carousel .slides .slide {
+  height: 0;
+  opacity: 0;
+  visibility: hidden;
+  transition-duration: 1s;
+}
+.carousel .slides .slide + .arrows {
+  display: none;
+}
+.carousel .slides .slide.active {
+  height: auto;
+  opacity: 1;
+  visibility: visible;
+}
+.carousel .slides .slide.active + .arrows {
+  display: flex;
+}
+.carousel .slides .slide img {
+  width: 100%;
+  border: 1px solid white;
+  border-radius: 0.4rem;
+  padding: 0.5rem;
+}
+.carousel .slides .arrows {
+  align-items: center;
+  justify-content: center;
+  gap: 2rem;
+  margin-top: 1rem;
+}
+.carousel .slides .arrows .arrow-left, .carousel .slides .arrows .arrow-right {
+  font-size: 0;
+  color: indigo;
+  width: 3rem;
+  height: 3rem;
+  cursor: pointer;
+  border-radius: 50%;
+  background: white url("../img/left.png") no-repeat center;
+  background-size: auto 2rem;
+}
+.carousel .slides .arrows .arrow-right {
+  background-image: url("../img/right.png");
+}
+.carousel .browse-more {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  gap: 2rem;
+}
+
+@media (min-width: 768px) {
+  html {
+    font-size: 12px;
+  }
+
+  h1, h2 {
+    padding-left: 5%;
+    padding-top: 2%;
+  }
+
+  .home .img {
+    width: 600px;
+    height: 600px;
+    bottom: -10%;
+  }
+
+  .cakes, .carousel {
+    flex-direction: row;
+    align-items: flex-start;
+  }
+  .cakes .accordion, .cakes .slide-wrapper, .carousel .accordion, .carousel .slide-wrapper {
+    margin-top: 0;
+    width: 50%;
+    max-height: 100%;
+    overflow: auto;
+    align-self: flex-end;
+  }
+  .cakes .accordion .panel.open div, .cakes .slide-wrapper .panel.open div, .carousel .accordion .panel.open div, .carousel .slide-wrapper .panel.open div {
+    max-height: 100vh;
+  }
+  .cakes .slides, .carousel .slides {
+    margin-top: 0;
+  }
+}
+@media (min-width: 1024px) {
+  html {
+    font-size: 14px;
+  }
+
+  .home .img {
+    width: calc(100vh + 100vw / 4);
+    height: calc(100vh + 100vw / 4);
+    max-width: 600px;
+    max-height: 600px;
+  }
+}
+@media (min-width: 1366px) {
+  .home .img {
+    max-width: 900px;
+    max-height: 900px;
+    bottom: -15%;
+  }
+}
+@media (min-width: 1440px) {
+  h1, h2 {
+    padding-left: 10%;
+  }
+
+  h1 {
+    font-size: 10rem;
+  }
+
+  h2 {
+    font-size: 7rem;
+  }
+
+  .home .img {
+    right: 10%;
+  }
+
+  .cakes .accordion, .carousel .slide-wrapper {
+    margin-right: calc(10% - 1rem);
+  }
+}
+
+/*# sourceMappingURL=style.css.map */
